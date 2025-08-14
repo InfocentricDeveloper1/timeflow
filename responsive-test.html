@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeFlow Responsive Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f3f4f6;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .device-frames {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .device {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .device-header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .device-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: #1f2937;
+        }
+        
+        .device-size {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+        
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: #f9fafb;
+        }
+        
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+        
+        /* Specific device sizes */
+        .iphone-se { width: 375px; }
+        .iphone-14 { width: 390px; }
+        .ipad { width: 768px; }
+        .desktop { width: 100%; }
+        
+        .resize-handle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 10px;
+            background: #3b82f6;
+            cursor: ew-resize;
+            opacity: 0.3;
+            transition: opacity 0.2s;
+        }
+        
+        .resize-handle:hover {
+            opacity: 0.6;
+        }
+        
+        .manual-test {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .test-item {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .test-item h3 {
+            margin: 0 0 10px 0;
+            color: #1f2937;
+        }
+        
+        .test-item ul {
+            margin: 5px 0;
+            padding-left: 20px;
+            color: #4b5563;
+        }
+        
+        .test-item li {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .device-frames {
+                grid-template-columns: 1fr;
+            }
+            
+            .iphone-se,
+            .iphone-14,
+            .ipad {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>TimeFlow Mobile Responsiveness Test</h1>
+        
+        <div class="device-frames">
+            <div class="device">
+                <div class="device-header">
+                    <div class="device-name">iPhone SE</div>
+                    <div class="device-size">375 × 667px</div>
+                </div>
+                <div class="iframe-wrapper iphone-se">
+                    <iframe src="modern-timer-stopwatch.html" height="667"></iframe>
+                </div>
+            </div>
+            
+            <div class="device">
+                <div class="device-header">
+                    <div class="device-name">iPhone 14</div>
+                    <div class="device-size">390 × 844px</div>
+                </div>
+                <div class="iframe-wrapper iphone-14">
+                    <iframe src="modern-timer-stopwatch.html" height="844"></iframe>
+                </div>
+            </div>
+            
+            <div class="device">
+                <div class="device-header">
+                    <div class="device-name">iPad</div>
+                    <div class="device-size">768 × 1024px</div>
+                </div>
+                <div class="iframe-wrapper ipad">
+                    <iframe src="modern-timer-stopwatch.html" height="600"></iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="manual-test">
+            <h2>Manual Responsive Tests</h2>
+            <div class="test-list">
+                <div class="test-item">
+                    <h3>✅ Viewport Meta Tag</h3>
+                    <ul>
+                        <li>Confirmed: viewport meta tag is present</li>
+                        <li>Uses width=device-width, initial-scale=1.0</li>
+                    </ul>
+                </div>
+                
+                <div class="test-item">
+                    <h3>📱 Mobile Breakpoints</h3>
+                    <ul>
+                        <li>Main breakpoint at 600px</li>
+                        <li>Display font reduces from 4em to 3em</li>
+                        <li>Timer inputs reduce from 80px to 60px</li>
+                        <li>Heading reduces from 2.5em to 2em</li>
+                        <li>Pomodoro settings grid changes to single column</li>
+                    </ul>
+                </div>
+                
+                <div class="test-item">
+                    <h3>🔧 Flexible Components</h3>
+                    <ul>
+                        <li>Container: 90% width with max-width constraint</li>
+                        <li>Buttons use flex-wrap for stacking</li>
+                        <li>Timer inputs use flexbox with wrap</li>
+                        <li>Mode switcher buttons adapt to screen width</li>
+                    </ul>
+                </div>
+                
+                <div class="test-item">
+                    <h3>⚠️ Potential Issues to Test</h3>
+                    <ul>
+                        <li>Long button text might overflow on very small screens</li>
+                        <li>Pomodoro settings might need scrolling on small devices</li>
+                        <li>Particle animations performance on mobile</li>
+                        <li>Touch targets size (minimum 44px recommended)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Allow resizing of device frames
+        document.querySelectorAll('.iframe-wrapper').forEach(wrapper => {
+            const handle = document.createElement('div');
+            handle.className = 'resize-handle';
+            wrapper.appendChild(handle);
+            
+            let isResizing = false;
+            let startX = 0;
+            let startWidth = 0;
+            
+            handle.addEventListener('mousedown', (e) => {
+                isResizing = true;
+                startX = e.clientX;
+                startWidth = wrapper.offsetWidth;
+                document.body.style.cursor = 'ew-resize';
+                e.preventDefault();
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (!isResizing) return;
+                const width = startWidth + (e.clientX - startX);
+                wrapper.style.width = Math.max(320, width) + 'px';
+            });
+            
+            document.addEventListener('mouseup', () => {
+                isResizing = false;
+                document.body.style.cursor = '';
+            });
+        });
+    </script>
+</body>
+</html>
