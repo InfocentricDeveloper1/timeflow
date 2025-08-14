@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-TimeFlow is a single-file web application (`modern-timer-stopwatch.html`) that provides three time-tracking modes:
+TimeFlow is a single-file web application (`index.html`) that provides three time-tracking modes:
 - Timer (countdown)
 - Stopwatch (count up)
 - Pomodoro (work/break intervals)
@@ -20,7 +20,7 @@ The application is built as a standalone HTML file with:
 ## Development Commands
 
 Since this is a single HTML file, there are no build, test, or lint commands. To develop:
-- Open `modern-timer-stopwatch.html` directly in a web browser
+- Open `index.html` directly in a web browser
 - Make changes and refresh the browser to see updates
 
 ## Key Components
