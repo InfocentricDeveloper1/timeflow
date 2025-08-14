@@ -21,6 +21,21 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     
+    <!-- Google Funding Choices (Consent Management) -->
+    <script>
+        // Initialize Google Funding Choices
+        window.googlefc = window.googlefc || {};
+        googlefc.callbackQueue = googlefc.callbackQueue || [];
+        
+        // Optional: Customize consent behavior
+        googlefc.callbackQueue.push({
+            'CONSENT_DATA_READY': function() {
+                // This callback fires when consent data is available
+                console.log('Consent data ready');
+            }
+        });
+    </script>
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4722603000032628" crossorigin="anonymous"></script>
 </head>

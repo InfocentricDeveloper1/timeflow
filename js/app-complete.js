@@ -173,7 +173,7 @@ window.TimeFlow = (function() {
             
             <!-- Legal Footer -->
             <div class="legal-footer">
-                © 2024 TimeFlow • <a href="terms.html">Terms</a> • <a href="privacy.html">Privacy</a>
+                © 2024 TimeFlow • <a href="terms.html">Terms</a> • <a href="privacy.html">Privacy</a> • <a href="#" onclick="TimeFlow.openPrivacySettings(); return false;">Privacy Settings</a>
             </div>
         `;
     }
@@ -902,6 +902,18 @@ window.TimeFlow = (function() {
         document.head.appendChild(link);
     }
 
+    // Privacy Settings function for consent management
+    function openPrivacySettings() {
+        // Check if Google Funding Choices is available
+        if (window.googlefc && window.googlefc.showRevocationMessage) {
+            // Show the consent management UI
+            window.googlefc.showRevocationMessage();
+        } else {
+            // Fallback: inform user about consent management
+            customAlert('Privacy settings are managed through the consent banner. If you are in the EU, UK, or Switzerland, you can manage your preferences when the consent banner appears.');
+        }
+    }
+
     // Public API
     return {
         init: init,
@@ -922,7 +934,8 @@ window.TimeFlow = (function() {
         autoSavePomodoroDurations: autoSavePomodoroDurations,
         closeModal: closeModal,
         customAlert: customAlert,
-        customConfirm: customConfirm
+        customConfirm: customConfirm,
+        openPrivacySettings: openPrivacySettings
     };
 })();
 
