@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TimeFlow - Beautiful timer, stopwatch, and pomodoro clock">
+    <meta name="keywords" content="timer, stopwatch, pomodoro, time tracking, productivity">
+    <meta name="copyright" content="Copyright (c) 2024 TimeFlow. All rights reserved.">
+    <meta property="og:title" content="TimeFlow - Beautiful Time Tracking">
+    <meta property="og:description" content="Free online timer, stopwatch, and pomodoro clock with beautiful animations">
+    <title>TimeFlow - Beautiful Time Tracking</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="css/app.css?v=1" as="style">
+    <link rel="preload" href="js/app.js?v=1" as="script">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/app.css?v=1">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4722603000032628" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- App Shell - Minimal HTML -->
+    <div id="app" class="app-loading">
+        <!-- Loading State -->
+        <div class="app-loader">
+            <div class="loader-spinner"></div>
+            <noscript>
+                <div class="noscript-message">
+                    <h2>JavaScript Required</h2>
+                    <p>TimeFlow requires JavaScript to function. Please enable JavaScript in your browser.</p>
+                </div>
+            </noscript>
+        </div>
+    </div>
+
+    <!-- Domain Protection -->
+    <script>
+        (function() {
+            const allowed = ['timeflow.live', 'www.timeflow.live', 'localhost', '127.0.0.1'];
+            const hostname = window.location.hostname;
+            const isLocal = hostname === '' || hostname.startsWith('192.168.') || hostname.startsWith('10.');
+            
+            if (!isLocal && !allowed.some(d => hostname === d || hostname.endsWith('.' + d))) {
+                document.body.innerHTML = '<div style="color:red;text-align:center;padding:50px;">Unauthorized Access</div>';
+                throw new Error('Unauthorized');
+            }
+        })();
+    </script>
+
+    <!-- App JavaScript -->
+    <script src="js/app-complete.js?v=1"></script>
+    
+    <!-- Initialize App -->
+    <script>
+        // Hide loader once app is initialized
+        window.addEventListener('load', function() {
+            TimeFlow.init();
+        });
+    </script>
+</body>
+</html>
